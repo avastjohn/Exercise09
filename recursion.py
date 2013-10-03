@@ -31,26 +31,45 @@ def reverse(listy):
         return []
     return reverse(listy[1:])+[listy[0]]
 
-print reverse(listy)
-
 # Fibonacci returns the nth fibonacci number. The nth fibonacci number is
 # defined as fib(n) = fib(n-1) + fib(n-2)
 def fibonacci(n):
-    pass
+    if n <= 2:
+        return 1
+    return fibonacci(n-1) + fibonacci(n-2)
 
 # Finds the item i in the list l.... RECURSIVELY
-def find(l, i):
-    return None
+def find(listy, i):
+    if listy == []:
+        return False
+    elif listy[0] == i:
+        return True
+    return find(listy[1:], i)
+
 
 # Determines if a string is a palindrome
 def palindrome(some_string):
-    return False
+    if len(some_string) <= 1:
+        return True
+    if some_string[0] == some_string[-1]:
+        return palindrome(some_string[1:-1])
+    else:
+        return False
 
 # Given the width and height of a sheet of paper, and the number of times to fold it, return the final dimensions of the sheet as a tuple. Assume that you always fold in half along the longest edge of the sheet.
 def fold_paper(width, height, folds):
-    return (0, 0)
+    if folds == 0:
+        return (width, height)
+    if folds % 2 == 1:
+        return fold_paper(width, height/2, folds - 1)        
+    if folds % 2 == 0:
+        return fold_paper(width / 2, height, folds - 1)
 
 # Count up
 # Print all the numbers from 0 to target
 def count_up(target, n):
-    return
+    if n == target:
+        return target
+    print n
+    return count_up(target, n+1)
+
