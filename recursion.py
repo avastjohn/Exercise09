@@ -24,11 +24,14 @@ def sum_list(listy):
         return 0
     return sum_list(listy[1:])+listy[0]
 
-print sum_list(listy)
 
 # Reverse a list without slicing or loops
-def reverse(l):
-    return []
+def reverse(listy):
+    if listy == []:
+        return []
+    return reverse(listy[1:])+[listy[0]]
+
+print reverse(listy)
 
 # Fibonacci returns the nth fibonacci number. The nth fibonacci number is
 # defined as fib(n) = fib(n-1) + fib(n-2)
